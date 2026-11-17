@@ -13,6 +13,7 @@ import { NotFoundPage } from '../pages/NotFoundPage'
 import { LoginPage } from '../features/auth/pages/LoginPage'
 import { SignupPage } from '../features/auth/pages/SignupPage'
 import { ProfilePage } from '../features/auth/pages/ProfilePage'
+import { VendorApplicationPage } from '../features/vendor/pages/VendorApplicationPage'
 
 // Root route
 const rootRoute = createRootRoute({
@@ -46,6 +47,13 @@ const profileRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/profile',
   component: ProfilePage,
+})
+
+// Vendor application route
+const partnerRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/partner',
+  component: VendorApplicationPage,
 })
 
 // Other page definitions
@@ -84,11 +92,6 @@ const pageDefinitions = [
     path: '/explore',
     title: 'Explore',
     description: 'Explore destinations, stays, journeys and services.',
-  },
-  {
-    path: '/partner',
-    title: 'Become a Partner',
-    description: 'Join TripNest as a hotel, travel or service partner.',
   },
   {
     path: '/about',
@@ -132,6 +135,7 @@ const routeTree = rootRoute.addChildren([
   loginRoute,
   signupRoute,
   profileRoute,
+  partnerRoute,
   ...placeholderRoutes,
 ])
 
